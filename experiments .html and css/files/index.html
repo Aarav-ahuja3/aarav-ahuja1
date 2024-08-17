@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Homepage with Sidenav and Background GIF</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #FFD3B6;
+            border-bottom: 1px solid #f8b195;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            height: 70px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            position: relative;
+        }
+
+        .logo {
+            height: 50px;
+            max-width: 100%;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #698474;
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            color: #FCF8F3;
+            background-color: #698474;
+            transform: scale(1.1);
+        }
+
+        .menu-button {
+            background-color: #698474;
+            color: #FCF8F3;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu-button.close {
+            background-color: #FCF8F3;
+            color: #698474;
+        }
+
+        @media (min-width: 768px) {
+            .menu-button {
+                display: none;
+            }
+            .nav-links {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .nav-links {
+                display: none; /* Hide links on small screens */
+            }
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: #FFD3B6;
+            overflow-x: hidden;
+            transition: width 0.3s ease-in-out;
+            padding-top: 60px;
+            z-index: 1;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #698474;
+            display: block;
+            transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .sidenav a:hover, .sidenav a:focus {
+            color: #FCF8F3;
+            background-color: #698474;
+            transform: scale(1.1);
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            left: 25px;
+            font-size: 36px;
+            color: #698474;
+            cursor: pointer;
+            background: none;
+            transition: background-color 0.3s ease;
+            padding: 10px;
+            border: none;
+        }
+
+        .sidenav .closebtn:hover {
+            background-color: #698474;
+            color: #FCF8F3;
+            border-radius: 5px;
+        }
+
+        .background-section {
+            background-image: url('videos/ahuja-infotech-typing-gif.mp4'); /* Path to your background GIF */
+            background-size: cover;
+            background-position: center;
+            height: 400px; /* Adjust height as needed */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #FCF8F3;
+            text-align: center;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px;
+        }
+
+        .background-section h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        .background-section p {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="ahuja-infotech-logo.png" alt="Ahuja Infotech Logo" class="logo"> <!-- Logo image -->
+        <div class="nav-links">
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact Us</a>
+            <a href="#why-choose-us">Why Choose Us</a>
+            <a href="#services">Services</a>
+            <a href="#portfolio">Portfolio</a>
+        </div>
+        <button class="menu-button" id="menuButton" onclick="toggleNav()">☰ Menu</button> <!-- Button to open/close sidenav -->
+    </header>
+
+    <nav id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">×</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact Us</a>
+        <a href="#why-choose-us">Why Choose Us</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+    </nav>
+
+    <div class="background-section">
+        <div>
+            <h1>Welcome to Our Homepage</h1>
+            <p>Here is some content for the homepage. Enjoy exploring our site!</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleNav() {
+            const sidenav = document.getElementById("mySidenav");
+            const menuButton = document.getElementById("menuButton");
+
+            if (sidenav.style.width === "250px") {
+                sidenav.style.width = "0";
+                menuButton.textContent = "☰ Menu";
+                menuButton.classList.remove("close");
+            } else {
+                sidenav.style.width = "250px";
+                menuButton.textContent = "× Close";
+                menuButton.classList.add("close");
+            }
+        }
+    </script>
+</body>
+</html>
+
+
